@@ -13,13 +13,13 @@ const MessageInput = () => {
   };
 
   return (
-    <div className=" shadow-inner">
+    <div>
       <div className="flex items-center space-x-2">
         <input
           type="text"
           value={message}
           placeholder="Type a message..."
-          className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+          className="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary bg-white"
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={(e) => {
             if (e.key == "Enter") {

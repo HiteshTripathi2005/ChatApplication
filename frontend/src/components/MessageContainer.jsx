@@ -34,9 +34,9 @@ const MessageContainer = () => {
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-88px)] mt-[80px] max-sm:mt-[80px] max-sm:ml-0 ml-72">
+    <div className="fixed inset-0 pt-14 ml-72 max-sm:ml-0">
       {/* Header */}
-      <div className="bg-primary border-b h-[61px] shadow-md sticky top-[56px] z-40">
+      <div className="absolute top-20 left-1 right-1 bg-primary border-b h-[61px] shadow-md z-40">
         <div className="flex items-center h-full px-4 relative">
           <div className="flex items-center gap-3 w-full">
             <button
@@ -63,11 +63,12 @@ const MessageContainer = () => {
           </div>
         </div>
       </div>
+
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 max-sm:p-2">
+      <div className="absolute top-[61px] bottom-[60px] left-0 right-0 overflow-y-auto p-4 max-sm:p-2">
         {fetchingMessages ? (
           <MessageSkeleton />
-        ) : messages ? (
+        ) : messages?.length > 0 ? (
           messages.map((message) => (
             <div
               key={`${message._id}`}
@@ -94,11 +95,13 @@ const MessageContainer = () => {
             <p className="text-gray-500 text-sm">No messages yet</p>
           </div>
         )}
-        {/* Add empty div with ref for auto-scrolling */}
         <div ref={messagesEndRef} />
       </div>
+
       {/* Message Input */}
-      <MessageInput />
+      <div className="absolute bottom-0 left-0 right-0 h-[60px] bg-white border-t p-3">
+        <MessageInput />
+      </div>
     </div>
   );
 };
