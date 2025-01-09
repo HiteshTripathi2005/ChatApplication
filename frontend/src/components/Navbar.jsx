@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="flex items-center ml-5 max-sm:ml-0">
         <NavLink className={"flex items-center"} to={"/"}>
           <img
-            src="https://pngimg.com/d/symbol_infinity_PNG35.png"
+            src={"../../public/chatapplogo.png"}
             alt="logo"
             className="h-18 w-20 cursor-pointer max-sm:h-16 max-sm:w-18"
           />
