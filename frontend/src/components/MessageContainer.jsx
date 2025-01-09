@@ -36,7 +36,7 @@ const MessageContainer = () => {
   return (
     <div className="flex flex-col h-[calc(100vh-88px)] mt-[80px] max-sm:mt-[80px] max-sm:ml-0 ml-72">
       {/* Header */}
-      <div className="bg-primary border-b h-[61px] shadow-md">
+      <div className="bg-primary border-b h-[61px] shadow-md sticky top-[56px] z-40">
         <div className="flex items-center h-full px-4 relative">
           <div className="flex items-center gap-3 w-full">
             <button

@@ -7,7 +7,7 @@ const Navbar = () => {
   const { authUser, logout } = useAuthStore();
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-14 bg-white p-3 shadow-md flex justify-between items-center">
+    <div className="fixed top-0 left-0 right-0 h-14 bg-white p-3 shadow-md flex justify-between items-center z-50">
       <div className="flex items-center ml-5 max-sm:ml-0">
         <NavLink className={"flex items-center"} to={"/"}>
           <img
