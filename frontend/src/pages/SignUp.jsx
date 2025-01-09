@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { useAuthStore } from "../store/useAuthStore";
 
 const SignUp = () => {
-  const { authUser, signUp } = useAuthStore();
+  const { signUp } = useAuthStore();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -60,7 +60,7 @@ const SignUp = () => {
               <input
                 type="text"
                 required
-                className="appearance-none rounded-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm w-[95%]"
+                className="appearance-none rounded-none relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm w-[95%]"
                 placeholder="User Name"
                 value={formData.userName}
                 onChange={(e) =>
