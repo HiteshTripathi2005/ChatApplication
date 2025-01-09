@@ -1,4 +1,5 @@
 import React from "react";
+import chatLogo from "/chatapplogo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CircleUserRound, LogOut } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
@@ -11,7 +12,7 @@ const Navbar = () => {
       <div className="flex items-center ml-5 max-sm:ml-0">
         <NavLink className={"flex items-center"} to={"/"}>
           <img
-            src={"../../public/chatapplogo.png"}
+            src={chatLogo}
             alt="logo"
             className="h-18 w-20 cursor-pointer max-sm:h-16 max-sm:w-18"
           />
