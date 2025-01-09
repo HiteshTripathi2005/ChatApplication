@@ -21,6 +21,16 @@ const App = () => {
     checkAuth();
   }, [checkAuth]);
 
+  const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
+
+  if (isFirefox) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <h1 className="text-2xl font-bold">Please use a different browser</h1>
+      </div>
+    );
+  }
+
   if (isCheckingAuth && !authUser) {
     return (
       <div className="flex items-center justify-center h-screen">

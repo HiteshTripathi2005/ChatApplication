@@ -5,26 +5,34 @@ import { useAuthStore } from "./useAuthStore";
 
 const useChatStore = create((set, get) => ({
   users: [],
+  fetchingUsers: false,
   selectedUser: null,
   messages: [],
+  fetchingMessages: false,
 
   fetchUsers: async () => {
     try {
+      set({ fetchingUsers: true });
       const response = await axiosInstance.get("/message/friends");
       set({ users: response.data.data });
     } catch (error) {
       console.log("Error fetching users: ", error);
       toast.error("Error fetching users");
+    } finally {
+      set({ fetchingUsers: false });
     }
   },
 
   fetchMessages: async (id) => {
     try {
+      set({ fetchingMessages: true });
       const res = await axiosInstance.get(`/message/${id}`);
       set({ messages: res.data.data || [] });
     } catch (error) {
       console.log("Error fetching messages: ", error);
       toast.error("Error fetching messages");
+    } finally {
+      set({ fetchingMessages: false });
     }
   },
 

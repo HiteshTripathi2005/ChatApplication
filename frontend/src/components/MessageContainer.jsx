@@ -5,10 +5,16 @@ import { useAuthStore } from "./../store/useAuthStore";
 import MessageInput from "./MessageInput";
 import formatTime from "../utils/formatTime";
 import { ArrowLeft } from "lucide-react";
+import MessageSkeleton from "./MessageSkeleton";
 
 const MessageContainer = () => {
-  const { selectedUser, messages, subscribeToMessages, setSelectedUser } =
-    useChatStore();
+  const {
+    selectedUser,
+    messages,
+    subscribeToMessages,
+    setSelectedUser,
+    fetchingMessages,
+  } = useChatStore();
   const { authUser, onlineUsers } = useAuthStore();
 
   // Add ref for messages container
@@ -59,7 +65,9 @@ const MessageContainer = () => {
       </div>
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-4 max-sm:p-2">
-        {messages ? (
+        {fetchingMessages ? (
+          <MessageSkeleton />
+        ) : messages ? (
           messages.map((message) => (
             <div
               key={`${message._id}`}
