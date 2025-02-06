@@ -14,6 +14,7 @@ const MessageContainer = () => {
     subscribeToMessages,
     setSelectedUser,
     fetchingMessages,
+    unSubscribeToMessages,
   } = useChatStore();
   const { authUser, onlineUsers } = useAuthStore();
 
@@ -27,7 +28,10 @@ const MessageContainer = () => {
 
   useEffect(() => {
     subscribeToMessages();
-  }, [subscribeToMessages]);
+    return () => {
+      unSubscribeToMessages();
+    };
+  }, [selectedUser]);
 
   if (!selectedUser) {
     return <SelectUser />;
